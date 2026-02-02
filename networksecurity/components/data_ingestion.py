@@ -47,7 +47,7 @@ class DataIngestion:
                 df=df.drop(columns=["_id"],axis=1)
             
             df.replace({"na":np.nan},inplace=True)
-            logging.info("Successfullf loaded data from mongoDb.")
+            logging.info("Successfully loaded data from mongoDb.")
             return df
         except Exception as e:
             logging.info("Error eccored while loading data from mongoDb.")
