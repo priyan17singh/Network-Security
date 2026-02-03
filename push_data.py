@@ -6,8 +6,8 @@ from urllib.parse import quote_plus
 
 username = quote_plus(os.getenv("MONGO_DB_USERNAME"))
 password = quote_plus(os.getenv("MONGO_DB_PASSWORD"))
-MONGO_DB_URL = f"mongodb+srv://{username}:{password}@chai.tgo7wef.mongodb.net/?appName=Chai"
-
+host = quote_plus(os.getenv("MONGO_DB_HOST"))
+MONGO_DB_URL = f"mongodb+srv://{username}:{password}@{host}"
 
 
 import certifi
