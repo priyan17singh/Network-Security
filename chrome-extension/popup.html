@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>URL Safety Checker</title>
+  <title>PhishGuard</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h2>Website Safety</h2>
-  <p id="url">Checking...</p>
+  <div class="container">
+    <header>
+      <span class="shield">🛡️</span>
+      <h1>PhishGuard</h1>
+    </header>
 
-  <div id="result" class="neutral">Waiting</div>
+    <p class="label">Current Website</p>
+    <p id="url" class="url">Checking...</p>
+
+    <div id="result" class="status neutral">
+      <span class="status-icon">⏳</span>
+      <span class="status-text">Analyzing</span>
+    </div>
+  </div>
 
   <script src="popup.js"></script>
 </body>

@@ -2,23 +2,28 @@ chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
   const url = tabs[0].url;
   document.getElementById("url").innerText = url;
 
+  const resultDiv = document.getElementById("result");
+  const statusText = resultDiv.querySelector(".status-text");
+  const statusIcon = resultDiv.querySelector(".status-icon");
+
   chrome.runtime.sendMessage(
     { action: "get_result", url },
     (response) => {
-      const resultDiv = document.getElementById("result");
-
       if (!response || response.label === "unknown") {
-        resultDiv.innerText = "⏳ Checking...";
-        resultDiv.className = "neutral";
+        resultDiv.className = "status neutral";
+        statusText.innerText = "Checking...";
+        statusIcon.innerText = "⏳";
         return;
       }
 
       if (response.label === "phishing") {
-        resultDiv.innerText = "⚠️ Phishing Website";
-        resultDiv.className = "phishing";
+        resultDiv.className = "status phishing";
+        statusText.innerText = "Phishing Website";
+        statusIcon.innerText = "⚠️";
       } else {
-        resultDiv.innerText = "✅ Legitimate Website";
-        resultDiv.className = "safe";
+        resultDiv.className = "status safe";
+        statusText.innerText = "Legitimate Website";
+        statusIcon.innerText = "✅";
       }
     }
   );
