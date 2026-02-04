@@ -1,0 +1,32 @@
+body {
+  width: 260px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 10px;
+}
+
+h2 {
+  margin-bottom: 8px;
+}
+
+#result {
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.safe {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.phishing {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.neutral {
+  background-color: #e2e3e5;
+  color: #383d41;
+}

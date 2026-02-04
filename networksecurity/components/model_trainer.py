@@ -15,8 +15,6 @@ from networksecurity.utils.main_utils.utils import load_numpy_array_data,evaluat
 from networksecurity.utils.ml_utils.metric.classification_metric import get_classification_score
 
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import r2_score
-from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import (
     AdaBoostClassifier,
@@ -24,9 +22,10 @@ from sklearn.ensemble import (
     RandomForestClassifier,
 )
 import mlflow
-from urllib.parse import urlparse
 
 import dagshub
+
+#Use your dagshub username and repo_name otherwise it will throw an error.
 dagshub.init(repo_owner='priyan17singh', repo_name='Network-Security', mlflow=True)
 
 
@@ -97,6 +96,7 @@ class ModelTrainer:
             list(model_report.values()).index(best_model_score)
         ]
         best_model = models[best_model_name]
+        print(best_model)
         y_train_pred=best_model.predict(X_train)
 
         classification_train_metric=get_classification_score(y_true=y_train,y_pred=y_train_pred)
